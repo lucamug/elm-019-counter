@@ -2,5 +2,7 @@
 echo "Uglifying..."
 uglifyjs --output docs/build/counter.0.18.min.js docs/build/counter.0.18.js --mangle --toplevel --compress
 uglifyjs --output docs/build/counter.0.19.min.js docs/build/counter.0.19.js --mangle --toplevel --compress
+uglifyjs --output docs/build/counter.0.19.opt.min.js docs/build/counter.0.19.opt.js --mangle --toplevel --compress
 uglifyjs --output docs/build/counter.0.19.prepack.min.js docs/build/counter.0.19.prepack.js --mangle --toplevel --compress
+uglifyjs --output docs/build/counter.0.19.opt.prepack.min.js docs/build/counter.0.19.opt.prepack.js --mangle --toplevel --compress
 echo "Done."

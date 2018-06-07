@@ -1,0 +1,2 @@
+#!/bin/bash
+~/elm make src/counter.0.19.elm --output docs/build/counter.0.19.opt.js --optimize
