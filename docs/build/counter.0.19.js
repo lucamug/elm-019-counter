@@ -1782,6 +1782,19 @@ function _Scheduler_step(proc)
 
 
 
+function _Process_sleep(time)
+{
+	return _Scheduler_binding(function(callback) {
+		var id = setTimeout(function() {
+			callback(_Scheduler_succeed(_Utils_Tuple0));
+		}, time);
+
+		return function() { clearTimeout(id); };
+	});
+}
+
+
+
 
 // PROGRAMS
 
@@ -2097,7 +2110,7 @@ function _Platform_setupOutgoingPort(name)
 
 	// CREATE MANAGER
 
-	var init = _Scheduler_succeed(null);
+	var init = _Process_sleep(0);
 
 	_Platform_effectManagers[name].b = init;
 	_Platform_effectManagers[name].c = F3(function(router, cmdList, state)
@@ -4436,6 +4449,7 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 };
 var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
@@ -4465,6 +4479,13 @@ var author$project$Main$view = function (model) {
 		_List_Nil,
 		_List_fromArray(
 			[
+				A2(
+				elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('0.19')
+					])),
 				A2(
 				elm$html$Html$button,
 				_List_fromArray(
